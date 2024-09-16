@@ -1,0 +1,50 @@
+Using pro forma:
+https://www.youtube.com/watch?v=5RcgFczzGYs
+
+1) Place target at global origin. Use a plane.
+1b) Rename plane 'target plane'.
+2) place camera at global origin. 
+3) Constrain camera to track to target object.
+4) Constrain target object to track to camera.
+5)Pull camera along z axis.
+6) Add circle empty.
+6a) Rotate circle 90 degrees on x.
+6b) Apply rotations to deltas.
+6c) Rename circle 'focus empty'
+ and place between target and camera on z axis.
+7) Lock x and y movement on circle empty (focus).
+8) Link in trace image to world origin.
+8a) Rotate trace image to correct oriention wrt to camera (should be multiples of 90 degrees).
+8b) Apply rotation to deltas on trace image.
+8c)	Lock rotation on x and y axes for trace image.
+8d) Set constraint on trace image to track to camera and adjust 'track axis' and 'Up' to make trace orientate correctly again (if necessary).
+9) Drop armature on camera (having used shift-s and object-set origin-origin to 3d cursor).
+6b) Return origin to target object.
+6c) Select armature and go into 'edit mode'.
+6d) Orientate armature by pressing shift-s then 'selection to cursor'
+10) Change style of armature to 'stick'.
+11) Set Camera as armature's parent.
+12) Set origin to target object. Go to edit mode, select armature tip and shift-s to target object.
+13) Make focus empty parent of trace image.
+14) Make armature parent of focus empty.
+
+1)Place origin to 0,0,0
+2)Add an empty (Plain Axes) rename it 'target empty'
+3)Add a camera
+4)Move camera in positive y direction and set 'track axis:-z, up:y'
+5)Add an empty (Circle) rename it 'focus empty'
+then lock locations x and z then lock rotations x and z.
+6)Set origin to camera
+7)Add bone to origin
+8)Set origin to 'target empty'
+9)Select armature, select edit mode then perform 'selection to cursor'
+10)For the bone in 'object data properties' (running stick man icon tab) change viewport display to 'stick'.
+11)Make camera parent of armature.
+12)Make armature parent of 'focus empty'.
+Adapted steps:-
+13)Set origin to 'focus empty' while it is lying on the y axis.
+14)Link in the sketch image. Rotate in blocks of 90 degrees so image is correctly oriented in camera. Select 'Object:Apply:Rotation to deltas'
+15)Make 'focus empty' the parent of the sketch image.
+16)Add a mesh circle at the origin do 'edit:adjust last operation' and change the number of vertices to 3. Change its name to 'target triangle'.
+17)Set a constraint for the target triangle to 'track to' and select the camera as the target object.
+NB) When setting up this camera rig I have started by pulling the camera away from the origin along the y axis and the rig worked. I could also have pulled the camera away along the x axis and the rig would have worked. However, if I'd pulled the camera along the z axis the and started moving it around then both the camera and the trace image would twist around by 180 degrees every time the camera is pulled across either 'x=0' or 'y=0' and this can be very frustrating when you are trying to match up a trace image to a model.
